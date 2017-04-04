@@ -5,12 +5,12 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import com.jliu.utils.URLUtils;
+import com.jliu.utils.UtilTools;
 
 public class LoginPanel extends JPanel {
 	public LoginPanel() {
 		super();
-		icon = new ImageIcon(URLUtils.getResourceUrl("login.jpg"));
+		icon = new ImageIcon(UtilTools.getResourceUrl("login.jpg"));
 		width = icon.getIconWidth();
 		height = icon.getIconHeight();
 		setSize(width, height);
