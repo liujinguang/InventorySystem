@@ -40,6 +40,7 @@ public class Login extends JFrame {
 	 */
 	public Login() {
 		setTitle("登录企业进销存管理系统");
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new LoginPanel();
@@ -47,7 +48,7 @@ public class Login extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		JLabel nameLabel = new JLabel("用户名：");
+		JLabel nameLabel = new JLabel("用户名");
 		nameLabel.setBounds(80, 150, 60, 20);
 		contentPane.add(nameLabel);
 		
@@ -56,7 +57,7 @@ public class Login extends JFrame {
 		contentPane.add(nameTextField);
 		nameTextField.setColumns(10);
 		
-		JLabel passwdLabel = new JLabel("密    码：");
+		JLabel passwdLabel = new JLabel("密    码");
 		passwdLabel.setBounds(80, 185, 60, 20);
 		contentPane.add(passwdLabel);
 		

@@ -1,11 +1,13 @@
 package com.jliu.internalFrame.customer;
 
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -168,16 +170,18 @@ public class CustomerModifyPanel extends JPanel {
 		CustomerDao dao = new CustomerDao();
 		Customer customer = dao.getByName(name);
 
-		addressTextField.setText(customer.getAddress());
-		abbrTextField.setText(customer.getAbbreviation());
-		zipcodeTextField.setText(customer.getZipcode());
-		phoneTextField.setText(customer.getTelephone());
-		faxTextField.setText(customer.getFax());
-		contactorField.setText(customer.getContacter());
-		contactorPhoneField.setText(customer.getContacterPhone());
-		emailField.setText(customer.getEmail());
-		bankField.setText(customer.getBankName());
-		bankAccountField.setText(customer.getAccountNo());
+		if (customer != null) {
+			addressTextField.setText(customer.getAddress());
+			abbrTextField.setText(customer.getAbbreviation());
+			zipcodeTextField.setText(customer.getZipcode());
+			phoneTextField.setText(customer.getTelephone());
+			faxTextField.setText(customer.getFax());
+			contactorField.setText(customer.getContacter());
+			contactorPhoneField.setText(customer.getContacterPhone());
+			emailField.setText(customer.getEmail());
+			bankField.setText(customer.getBankName());
+			bankAccountField.setText(customer.getAccountNo());
+		}
 	}
 
 	public void initComboBox() {
@@ -206,12 +210,23 @@ public class CustomerModifyPanel extends JPanel {
 			return;
 		}
 
-		
 		Customer customer = new Customer(name, abbreviation, address, telephone, email, zipcode, accountNo, bankName,
 				fax, contacter, contacterPhone);
 				
 		CustomerDao dao = new CustomerDao();
 		dao.saveOrUpdate(customer);
+	}
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			
+			public void run() {
+				JFrame frame = new JFrame();
+				frame.add(new CustomerModifyPanel());
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setVisible(true);
+			}
+		});
 	}
 
 	private JTextField addressTextField;

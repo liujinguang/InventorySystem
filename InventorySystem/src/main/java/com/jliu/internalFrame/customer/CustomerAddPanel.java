@@ -4,11 +4,14 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import org.apache.log4j.chainsaw.Main;
 import com.jliu.dao.CustomerDao;
 import com.jliu.model.Customer;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import java.awt.event.ActionListener;
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 
 public class CustomerAddPanel extends JPanel {
@@ -41,6 +44,7 @@ public class CustomerAddPanel extends JPanel {
 
 		nameTextField = new JTextField();
 		nameTextField.setBounds(95, 25, 370, 20);
+		nameTextField.setToolTipText("输入客户名称，不能为空！");
 		add(nameTextField);
 		nameTextField.setColumns(10);
 
@@ -95,6 +99,7 @@ public class CustomerAddPanel extends JPanel {
 
 		contactorField = new JTextField();
 		contactorField.setBounds(95, 145, 140, 20);
+		contactorField.setToolTipText("输入联系人, 不能为空!");
 		add(contactorField);
 		contactorField.setColumns(10);
 
@@ -195,7 +200,7 @@ public class CustomerAddPanel extends JPanel {
 		}
 
 		CustomerDao dao = new CustomerDao();
-		if (dao.isCustomerPresent(name)) {
+		if (dao.isCustomerExist(name)) {
 			promptLabel.setText("<html><body><p style=\"color:red\">公司名称已存在！</p></body></html>");
 			return;
 		}
@@ -203,5 +208,17 @@ public class CustomerAddPanel extends JPanel {
 		Customer customer = new Customer(name, abbreviation, address, telephone, email, zipcode, accountNo, bankName,
 				fax, contacter, contacterPhone);
 		dao.saveOrUpdate(customer);
+	}
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				JFrame frame = new JFrame();
+				frame.add(new CustomerAddPanel());
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				frame.setBounds(100, 100, 500, 350);
+				frame.setVisible(true);
+			}
+		});
 	}
 }

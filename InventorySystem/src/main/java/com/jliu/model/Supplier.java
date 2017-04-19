@@ -6,7 +6,7 @@ public class Supplier {
 	}
 
 	public Supplier(String name, String abbreviation, String address, String telephone, String email, String zipcode,
-			String bankName, String fax, String contacter, String contacterPhone) {
+			String bankName, String accountNo, String fax, String contacter, String contacterPhone) {
 		super();
 		this.name = name;
 		this.abbreviation = abbreviation;
@@ -18,6 +18,7 @@ public class Supplier {
 		this.fax = fax;
 		this.contacter = contacter;
 		this.contacterPhone = contacterPhone;
+		this.accountNo = accountNo;
 	}
 
 	public long getId() {
@@ -107,6 +108,14 @@ public class Supplier {
 	public void setContacterPhone(String contacterPhone) {
 		this.contacterPhone = contacterPhone;
 	}
+	
+	public String getAccountNo() {
+		return accountNo;
+	}
+
+	public void setAccountNo(String accountNo) {
+		this.accountNo = accountNo;
+	}
 
 	private long id;
 	private String name;
@@ -116,6 +125,7 @@ public class Supplier {
 	private String email;
 	private String zipcode;
 	private String bankName;
+	private String accountNo;
 	private String fax;
 	private String contacter;
 	private String contacterPhone;

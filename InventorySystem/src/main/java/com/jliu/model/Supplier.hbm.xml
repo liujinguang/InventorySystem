@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 4, 2017 8:35:15 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.jliu.model.Supplier" table="tb_supplier">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="abbreviation" type="java.lang.String">
+            <column name="ABBREVIATION" />
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+        <property name="telephone" type="java.lang.String">
+            <column name="TELEPHONE" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="zipcode" type="java.lang.String">
+            <column name="ZIPCODE" />
+        </property>
+        <property name="bankName" type="java.lang.String">
+            <column name="BANKNAME" />
+        </property>
+        <property name="accountNo" type="java.lang.String">
+            <column name="ACCOUNTNO" />
+        </property>        
+        <property name="fax" type="java.lang.String">
+            <column name="FAX" />
+        </property>
+        <property name="contacter" type="java.lang.String">
+            <column name="CONTACTER" />
+        </property>
+        <property name="contacterPhone" type="java.lang.String">
+            <column name="CONTACTERPHONE" />
+        </property>
+    </class>
+</hibernate-mapping>

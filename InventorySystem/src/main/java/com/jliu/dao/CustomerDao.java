@@ -14,9 +14,8 @@ public class CustomerDao extends AbstractorDao {
 	 * @param fullName
 	 * @return boolean
 	 */
-	public boolean isCustomerPresent(String fullName) {
+	public boolean isCustomerExist(String fullName) {
 		Session session = getSession();
-		Transaction tx = null;
 		
 		List<Customer> list = session.createCriteria(Customer.class).add(Restrictions.eq("name", fullName)).list();
 		
@@ -30,7 +29,6 @@ public class CustomerDao extends AbstractorDao {
 	 */
 	public Customer getByName(String fullName) {
 		Session session = getSession();
-		Transaction tx = null;
 		
 		List<Customer> list = session.createCriteria(Customer.class).add(Restrictions.eq("name", fullName)).list();
 		if (list.isEmpty()) {

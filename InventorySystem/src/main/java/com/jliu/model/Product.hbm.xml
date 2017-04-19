@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 4, 2017 8:35:15 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.jliu.model.Product" table="PRODUCT">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="abbreviation" type="java.lang.String">
+            <column name="ABBREVIATION" />
+        </property>
+        <property name="producingArea" type="java.lang.String">
+            <column name="PRODUCINGAREA" />
+        </property>
+        <property name="vendor" type="java.lang.String">
+            <column name="VENDOR" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="approvalNo" type="java.lang.String">
+            <column name="APPROVALNO" />
+        </property>
+        <property name="serialNo" type="java.lang.String">
+            <column name="SERIALNO" />
+        </property>
+        <property name="spec" type="java.lang.String">
+            <column name="SPEC" />
+        </property>
+        <property name="packaging" type="java.lang.String">
+            <column name="PACKAGING" />
+        </property>
+        <many-to-one name="supplier" class="com.jliu.model.Supplier" fetch="join">
+            <column name="SUPPLIER" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

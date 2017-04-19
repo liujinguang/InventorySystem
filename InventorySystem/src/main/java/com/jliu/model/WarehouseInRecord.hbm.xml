@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 4, 2017 8:35:15 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.jliu.model.WarehouseInRecord" table="WAREHOUSEINRECORD">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="product" class="com.jliu.model.Product" fetch="join">
+            <column name="PRODUCT" />
+        </many-to-one>
+        <many-to-one name="operator" class="com.jliu.model.Employee" fetch="join">
+            <column name="OPERATOR" />
+        </many-to-one>
+        <many-to-one name="clerk" class="com.jliu.model.Employee" fetch="join">
+            <column name="CLERK" />
+        </many-to-one>
+        <property name="settlementMode" type="java.lang.String">
+            <column name="SETTLEMENTMODE" />
+        </property>
+        <property name="price" type="double">
+            <column name="PRICE" />
+        </property>
+        <property name="quantity" type="long">
+            <column name="QUANTITY" />
+        </property>
+    </class>
+</hibernate-mapping>
